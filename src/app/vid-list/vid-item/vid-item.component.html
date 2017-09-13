@@ -1,0 +1,76 @@
+<!--a
+  href="#/"
+  class="list-group-item clearfix bottom-out"
+  (click)="onSelected()"
+-->
+<a
+  href="#/"
+  class="list-group-item clearfix bottom-out"
+  (click)="openModal(template)"
+>
+<div>
+  <h3 class="list-group-item-heading"><strong>{{ vidItem.name }}</strong></h3>
+  <img
+    [src]="vidItem.staticImageUrl"
+    alt="{{ vidItem.name }}"
+    class="img-thumbnail link-img"
+  >
+  <div
+    class="top-out"
+    *ngIf="vidItem.user"
+  >
+    <img *ngIf="vidItem.user.picture"
+      [src]="vidItem.user.picture"
+      alt="vidItem.user.embeddedDisplayName"
+      class="user-img rounded"
+    >
+    <span><strong>User:</strong> {{vidItem.user.embeddedDisplayName}}</span>
+  </div>
+ </div>
+  <div
+    class="top-out"
+    *ngIf="vidItem.brand"
+  >
+    <img *ngIf="vidItem.brand.imageUrl"
+      [src]="vidItem.brand.imageUrl"
+      alt="vidItem.brand.name"
+      class="user-img rounded"
+    >
+    <span><strong>User:</strong> {{vidItem.brand.name}}</span>
+  </div>
+</a>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ vidItem.name }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="innerCenter">
+      <video controls autoplay width="98%" width="50%">
+        <source [src]="vidItem.portraitUrl" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <strong>Tags</strong>
+    <div
+      class="container-fluid side-nudge"
+      *ngFor="let product of vidItem.products">
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm nudger"
+        *ngFor="let tags of product.tags">{{ tags }}</button>
+    </div>
+    <p class="small"><strong>Description:</strong> {{ vidItem.description }}</p>
+    <br>
+    <p><strong>Specs</strong></p>
+    <div *ngFor="let product of vidItem.products">
+      <ul>
+        <li *ngFor="let specs of product.specs" clss="small">{{ specs }}</li>
+      </ul>
+    </div>
+
+  </div>
+</ng-template>

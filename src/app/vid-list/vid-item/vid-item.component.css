@@ -1,0 +1,38 @@
+.bottom-out {
+  margin-bottom: 2.5rem;
+}
+
+
+.top-out {
+  margin-top: 1.2rem;
+}
+
+.user-img {
+  max-width: 15rem;
+}
+
+.link-img {
+  cursor: pointer;
+}
+
+.side-nudge {
+  margin: 1rem;
+}
+
+.modal-body {
+  max-height: 30em;
+  overflow-y: scroll;
+}
+
+.nudger{
+  margin: 0.2rem;
+}
+
+.framer {
+  wdith: 96%;
+}
+
+.innerCenter {
+  width: 50%;
+  margin: 0 auto;
+}

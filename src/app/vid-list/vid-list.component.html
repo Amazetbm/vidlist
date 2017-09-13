@@ -1,0 +1,6 @@
+<div class='col-md-6'>
+  <app-vid-item
+    *ngFor="let items of videoItems"
+    [vidItem]="items"
+    (vidSelected)="onVidSelected(items)"></app-vid-item>
+</div>
